@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 var PropTypes = 'prop-types',
-{Router, Route, IndexRoute, Link, browserHistory} = ReactRouter,
+{Router, Route, IndexRoute, browserHistory} = ReactRouter,
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
 hours = new Date().getHours(),
