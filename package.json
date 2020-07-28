@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Jsarendt.github.io/weather-app",
+  "homepage": "https://jsarendt.github.io/weather-app",
   "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
