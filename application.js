@@ -323,7 +323,7 @@ var WeekCard = React.createClass({
 
 const Root = () => (
 		<Router>
-		  <Route path="/weather-app/" component={CitySearch} />
+		  <Route path="/weather-app" component={CitySearch} />
 			  <Route path="/application" component={Application}>
 				  <Route path="/week" component={WeekCard} />
 			  </Route>
