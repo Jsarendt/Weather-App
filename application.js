@@ -1,5 +1,5 @@
 var PropTypes = 'prop-types',
-{Router, Route, IndexRoute, Link, browserHistory} = 'react-router-dom',
+{Router, Route, IndexRoute, Link, browserHistory, BrowserRouter} = 'react-router-dom',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
 hours = new Date().getHours(),
@@ -323,9 +323,9 @@ var WeekCard = React.createClass({
 
 const Root = () => (
 		<Router>
-		  <Route path="/weather-app" component={CitySearch} />
-			  <Route path="/application" component={Application}>
-				  <Route path="/week" component={WeekCard} />
+		  <Route path={process.env.PUBLIC_URL + '/weather-app'}> component={CitySearch} />
+			  <Route path={process.env.PUBLIC_URL + '/application'}> component={Application}>
+				  <Route path={process.env.PUBLIC_URL + '/week'}> component={WeekCard} />
 			  </Route>
 		</Router>
 );
