@@ -1,11 +1,12 @@
-import React from "react";
-import ReactDOM from 'react-dom'
-import {
-  BrowserRouter as Router,
+parse = require('node-html-parser');
+
+{
+  HashRouter,
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} = require("react-router-dom");
+
 var PropTypes = 'prop-types',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
@@ -329,12 +330,12 @@ var WeekCard = React.createClass({
 });
 
 const Root = () => (
-		<BrowserRouter basename={process.env.PUBLIC_URL}>
+		<HashRouter basename={process.env.PUBLIC_URL}>
 		  <Route path='/weather-app' component={CitySearch} />
 			  <Route path='/application' component={Application}>
 				  <Route path='/week' component={WeekCard} />
 			  </Route>
-		</BrowserRouter>
+		</HashRouter>
 );
 
 ReactDOM.render(<Root />, document.getElementById("app"));
