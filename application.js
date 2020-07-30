@@ -1,11 +1,10 @@
-parse = require('node-html-parser');
 
-{
+import {
   HashRouter,
   Switch,
   Route,
   Link
-} = require("react-router-dom");
+} from "react-router-dom";
 
 var PropTypes = 'prop-types',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
