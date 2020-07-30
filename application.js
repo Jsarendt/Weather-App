@@ -330,9 +330,9 @@ var WeekCard = React.createClass({
 
 const Root = () => (
 		<BrowserRouter basename={process.env.PUBLIC_URL}>
-		  <Route path={process.env.PUBLIC_URL + '/weather-app'} component={CitySearch} />
-			  <Route path={process.env.PUBLIC_URL + '/application'} component={Application}>
-				  <Route path={process.env.PUBLIC_URL + '/week'} component={WeekCard} />
+		  <Route path='/weather-app' component={CitySearch} />
+			  <Route path='/application' component={Application}>
+				  <Route path='/week' component={WeekCard} />
 			  </Route>
 		</BrowserRouter>
 );
