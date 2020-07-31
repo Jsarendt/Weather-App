@@ -1,4 +1,3 @@
-import "@babel/register";
 import {
   HashRouter,
   Switch,
