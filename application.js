@@ -1,6 +1,3 @@
-const babel = require("@babel/core");
-
-babel.transform("code", optionsObject);
 
 var PropTypes = 'prop-types',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
