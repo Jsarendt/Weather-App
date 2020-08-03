@@ -2,13 +2,6 @@ const babel = require("@babel/core");
 
 babel.transform("code", optionsObject);
 
-import {
-  HashRouter,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
 var PropTypes = 'prop-types',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
