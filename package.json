@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://jsarendt.github.io/weather-app",
+  "main": "application.js",
   "type": "module",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
@@ -45,11 +46,14 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.0.0",
+	"babel-loader": "^8.0.1",
     "css-loader": "^4.2.0",
+	"html-webpack-plugin": "^3.0.4",
     "gh-pages": "^3.1.0",
     "mini-css-extract-plugin": "^0.9.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+	"webpack-dev-server": "^3.0.0"
   }
 }

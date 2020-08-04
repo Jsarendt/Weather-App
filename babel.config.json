@@ -2,6 +2,7 @@
   "presets": [
     [
       "@babel/env",
+	  "@babel/preset-react"
       {
         "targets": {
           "edge": "17",
@@ -13,5 +14,9 @@
         "corejs": "3.6.4",
       }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
