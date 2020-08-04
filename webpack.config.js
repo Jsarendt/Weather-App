@@ -8,6 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
 	path: path.resolve(__dirname, 'temp'),
+	publicPath: '/',
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
@@ -36,6 +37,9 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
@@ -47,5 +51,6 @@ module.exports = {
     port: port,
     historyApiFallback: true,
     open: true
+	contentBase: './temp'
   }
 };
