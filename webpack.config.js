@@ -1,81 +1,50 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-module.exports = function(_env, argv) {
-  const isProduction = argv.mode === "production";
-  const isDevelopment = !isProduction;
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-  return {
-    devtool: isDevelopment && "cheap-module-source-map",
-    entry: "./src/application.js",
-    output: {
-      path: path.resolve(__dirname, "dist"),
-      filename: "assets/js/[name].[contenthash:8].js",
-      publicPath: "/"
-	 },
-+    module: {
-+      rules: [
-+        {
-+          test: /\.jsx?$/,
-+          exclude: /node_modules/,
-+          use: {
-+            loader: "babel-loader",
-+            options: {
-+              cacheDirectory: true,
-+              cacheCompression: false,
-+              envName: isProduction ? "production" : "development"
-+            }
-+          }
-		 },
-+        {
-+          test: /\.css$/,
-+          use: [
-+            isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-+            "css-loader"
-+          ]
-+        }
-+      ]
-+    },
-+    resolve: {
-+      extensions: [".js", ".jsx"]
-    },
-+    plugins: [
-+      isProduction &&
-+        new MiniCssExtractPlugin({
-+          filename: "assets/css/[name].[contenthash:8].css",
-+          chunkFilename: "assets/css/[name].[contenthash:8].chunk.css"
-+        })
-+    ].filter(Boolean)
-  };
-};
+const port = process.env.PORT || 3000;
 
 module.exports = {
-  presets: [
-    [
-      "@babel/preset-env",
+  mode: 'development',  
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.[hash].js'
+  },
+  devtool: 'inline-source-map',
+  module: {
+    rules: [
       {
-        modules: false
-      }
-    ],
-    "@babel/preset-react"
-  ],
-  plugins: [
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-class-properties"
-  ],
-  env: {
-    production: {
-      only: ["src"],
-      plugins: [
-        [
-          "transform-react-remove-prop-types",
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        use: [
           {
-            removeImport: true
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localsConvention: 'camelCase',
+              sourceMap: true
+            }
           }
-        ],
-        "@babel/plugin-transform-react-inline-elements",
-        "@babel/plugin-transform-react-constant-elements"
-      ]
-    }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico'
+    })
+  ],
+  devServer: {
+    host: 'localhost',
+    port: port,
+    historyApiFallback: true,
+    open: true
   }
 };
