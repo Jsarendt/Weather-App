@@ -1,4 +1,4 @@
-
+var Link = require('react-router').Link
 var PropTypes = 'prop-types',
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
