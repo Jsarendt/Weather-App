@@ -7,6 +7,7 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
+	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
     filename: 'bundle.js'
   },
@@ -50,6 +51,5 @@ module.exports = {
     port: port,
     historyApiFallback: true,
     open: true
-	contentBase: './temp'
   }
 };
