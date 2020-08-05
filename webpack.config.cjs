@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
-	path: path.resolve(__dirname, './dist'),
+	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
     filename: 'bundle.js'
   },
@@ -41,7 +41,10 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   plugins: [
-	new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico'
+    })
   ],
   devServer: {
     host: 'localhost',

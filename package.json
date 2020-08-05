@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://jsarendt.github.io/weather-app",
   "main": "application.js",
-  "type": "module",
+  "@std/esm": "cjs",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@babel/standalone": "^7.11.0",
@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "application": "^0.1.4",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "dotenv": "^8.2.0",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,10 +22,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "dev": "webpack --mode development"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,7 +52,7 @@
     "babel-loader": "^8.0.1",
     "css-loader": "^4.2.0",
     "gh-pages": "^3.1.0",
-    "html-webpack-plugin": "^3.0.4",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
