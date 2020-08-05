@@ -19,7 +19,7 @@ days = [
 	{id: "Saturday", abb: "Sat"}];
 
 //delays rendering of /application route to allow for the Geocoding API call to make changes
-class DelayLink extends React.Component {
+export default class DelayLink extends React.Component {
   static propTypes = {
     delay:        PropTypes.number,
     onDelayStart: PropTypes.func,
