@@ -1,7 +1,8 @@
-import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-var Link = require('react-router').Link
-var PropTypes = 'prop-types',
+var Link = require('react-router').Link;
+var PropTypes = 'prop-types';
+var React = require('react');
+var ReactDOM = require('react-dom'),
 darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
 hours = new Date().getHours(),
