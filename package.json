@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jsarendt.github.io/weather-app",
+  "homepage": ".",
   "main": "application.js",
   "@std/esm": "cjs",
   "dependencies": {
