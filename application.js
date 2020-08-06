@@ -327,7 +327,7 @@ var WeekCard = createReactClass({
 });
 
 const Root = () => (
-		<Router history={hashHistory} basename={process.env.PUBLIC_URL}>
+		<Router basename={process.env.PUBLIC_URL}>
 		  <Route path='/weather-app' component={CitySearch} />
 			  <Route path='/application' component={Application}>
 				  <Route path='/week' component={WeekCard} />
