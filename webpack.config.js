@@ -41,7 +41,10 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   plugins: [
-	new HtmlWebpackPlugin()
+	new HtmlWebpackPlugin({
+		template: 'index.html',
+		inject: 'body'
+	})
   ],
   devServer: {
     host: 'localhost',
