@@ -1,5 +1,6 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 var Link = require('react-router').Link;
+var createReactClass = require('create-react-class');
 var PropTypes = 'prop-types';
 var React = require('react');
 var ReactDOM = require('react-dom'),
@@ -227,7 +228,7 @@ function metric(input, type) {
 	}
 }
 
-var WeekCard = React.createClass({
+var WeekCard = createReactClass({
 	getInitialState() {
     return {
 			averageHigh: [],
