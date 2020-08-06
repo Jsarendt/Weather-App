@@ -1,4 +1,4 @@
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, HashRouter as Router, Route } from 'react-router-dom';
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
 var PropTypes = 'prop-types';
@@ -327,12 +327,12 @@ var WeekCard = createReactClass({
 });
 
 const Root = () => (
-		<BrowserRouter history={hashHistory} basename={process.env.PUBLIC_URL}>
+		<HashRouter history={hashHistory} basename={process.env.PUBLIC_URL}>
 		  <Route path='/weather-app' component={CitySearch} />
 			  <Route path='/application' component={Application}>
 				  <Route path='/week' component={WeekCard} />
 			  </Route>
-		</BrowserRouter>
+		</HashRouter>
 );
 
 ReactDOM.render(<Root />, document.getElementById("app"));
