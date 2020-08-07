@@ -11,4 +11,4 @@ const createRoutes = () => (
 	</Router>
 )
 
-export default routes;
+export default createRoutes;
