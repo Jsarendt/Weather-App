@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { CitySearch, Application, WeekCard } from './application.js';
 
-const createRoutes = () => (
+const routes = () => (
 	<Router basename="/weather-app">
 		<Route path='/' component={CitySearch} />
 		<Route path='/application' component={Application}>
@@ -11,4 +11,4 @@ const createRoutes = () => (
 	</Router>
 )
 
-export default createRoutes;
+export default routes;
