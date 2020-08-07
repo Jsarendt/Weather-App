@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import { CitySearch, Application, WeekCard } from './application';
+import { CitySearch, Application, WeekCard } from './application.js';
 
 const createRoutes = () => (
 	<Router basename={process.env.PUBLIC_URL}>

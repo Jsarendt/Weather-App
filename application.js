@@ -1,5 +1,5 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import createRoutes from './routes';
+import createRoutes from './routes.js';
 const routes = createRoutes();
 
 var Link = require('react-router').Link;
