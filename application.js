@@ -1,4 +1,4 @@
-import { Switch, Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
 var PropTypes = 'prop-types';
