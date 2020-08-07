@@ -5,7 +5,7 @@ const port = 3000;
 
 module.exports = {
   mode: 'development',  
-  entry: './application.js',
+  entry: './routes.js',
   output: {
 	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
