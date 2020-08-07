@@ -1,4 +1,7 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import createRoutes from './routes';
+const routes = createRoutes();
+
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
 var PropTypes = 'prop-types';
@@ -228,7 +231,7 @@ function metric(input, type) {
 	}
 }
 
-var WeekCard = createReactClass({
+export var WeekCard = createReactClass({
 	getInitialState() {
     return {
 			averageHigh: [],
@@ -326,13 +329,5 @@ var WeekCard = createReactClass({
 	}
 });
 
-const Root = () => (
-		<Router basename={process.env.PUBLIC_URL}>
-		  <Route path='/weather-app' component={CitySearch} />
-			  <Route path='/application' component={Application}>
-				  <Route path='/week' component={WeekCard} />
-			  </Route>
-		</Router>
-);
 
-ReactDOM.render(<Root />, document.getElementById("app"));
+ReactDOM.render(routes, document.getElementById("app"));
