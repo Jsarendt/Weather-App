@@ -76,7 +76,7 @@ days = [
 }
 */}
 
-class CitySearch extends React.Component {
+export class CitySearch extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -120,7 +120,7 @@ class CitySearch extends React.Component {
 	}
 };
 
-class Application extends React.Component {
+export class Application extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
