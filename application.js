@@ -1,6 +1,6 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import routes from './routes.js';
-import DelayLink from './DelayLink.js';
+//import DelayLink from './DelayLink.js';
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
 var React = require('react');
@@ -58,7 +58,7 @@ export class CitySearch extends React.Component {
 						value={this.state.input}
   					onChange={this.handleChange} />
 					<button id="search-button" className="btn" onClick={this.updateCity}>
-						<DelayLink to="/application" delay={800} className="btn" />
+						<Link to="/application" className="btn" />
 					</button>
 				</div>
 			</div>
