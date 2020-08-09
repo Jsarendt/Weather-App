@@ -153,10 +153,10 @@ export class Application extends React.Component {
 					</section>
 					{/*passes unit type to change temp units
 						 passes daily # to tell how many day cards to render (5 vs 7)*/}
-					{React.Children.map
+					{/*React.Children.map
 						(this.props.children, child => 
 							React.cloneElement(child, {currentTemp: this.state.currentTemp, daily: this.state.daily, unit: this.state.unit}))
-					}
+					*/}
 				</div>
 			</main>
 		)
