@@ -173,20 +173,20 @@ function metric(input, type) {
 			break;
 	}
 }
-
-export var WeekCard = createReactClass({
-	getInitialState() {
-    return {
+export class WeekCard extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
 			averageHigh: [],
-      active: false,
+			active: false,
 			morn: 0,
 			eve: 0,
 			windSpeed: 0,
 			dewPoint: 0,
 			humidity: 0
-    };
-  },
-	render: function(props){
+		}
+	}
+	render() {
 		var week = this.props.daily
 			.slice(0, this.props.location.query.daily)
 			.map(day =>
@@ -270,7 +270,6 @@ export var WeekCard = createReactClass({
 		</div>
 		);
 	}
-});
-
+};
 
 ReactDOM.render(routes, document.getElementById("app"));
