@@ -1,9 +1,9 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import routes from './routes.js';
+import PropTypes from 'prop-types';
 
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
-var PropTypes = 'prop-types';
 var React = require('react');
 var ReactDOM = require('react-dom'),
 darkBackground = "linear-gradient(#01081C, #002AA0)",
