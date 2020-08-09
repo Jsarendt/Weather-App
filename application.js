@@ -1,5 +1,5 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import routes from './routes.js';
+import routes from '/routes.js';
 
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
