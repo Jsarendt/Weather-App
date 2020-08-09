@@ -4,7 +4,7 @@ import { CitySearch, Application, WeekCard } from './application.js';
 
 const routes = () => (
 	<Router basename="/weather-app">
-		<Route path='/' component={CitySearch} />
+		<Route exact path='/' component={CitySearch} />
 		<Route path='/application' component={Application}>
 			<Route path='/week' component={WeekCard} />
 		</Route>
