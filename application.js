@@ -23,7 +23,7 @@ days = [
 	{id: "Saturday", abb: "Sat"}];
 
 //delays rendering of /application route to allow for the Geocoding API call to make changes
-{/*export default class DelayLink extends React.Component {
+export class DelayLink extends React.Component {
   static propTypes = {
     delay:        PropTypes.number,
     onDelayStart: PropTypes.func,
@@ -76,7 +76,7 @@ days = [
     );
   }
 }
-*/}
+
 
 export class CitySearch extends React.Component {
 	constructor(props){
@@ -114,7 +114,7 @@ export class CitySearch extends React.Component {
 						value={this.state.input}
   					onChange={this.handleChange} />
 					<button id="search-button" className="btn" onClick={this.updateCity}>
-						<Link to="/application" delay={800} className="btn" />
+						<DelayLink to="/application" delay={800} className="btn" />
 					</button>
 				</div>
 			</div>
