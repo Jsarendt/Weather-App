@@ -1,4 +1,3 @@
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import createRoutes from './routes.js';
 //import DelayLink from './DelayLink.js';
 var Link = require('react-router').Link;

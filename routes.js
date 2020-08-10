@@ -1,14 +1,14 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, HashRouter, Route } from 'react-router-dom';
 import { CitySearch, Application, WeekCard } from './application.js';
 
 const createRoutes = (
-	<Router>
-		<Route exact path={process.env.PUBLIC_URL + '/weather-app/'} component={CitySearch} />
-		<Route path={process.env.PUBLIC_URL + '/application'} component={Application}>
-			<Route path={process.env.PUBLIC_URL + '/week'} component={WeekCard} />
+	<HashRouter basename={process.env.PUBLIC_URL}>
+		<Route exact path='/weather-app/' component={CitySearch} />
+		<Route path='/application' component={Application}>
+			<Route path='/week' component={WeekCard} />
 		</Route>
-	</Router>
+	</HashRouter>
 )
 
 
