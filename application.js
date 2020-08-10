@@ -56,8 +56,8 @@ export class CitySearch extends React.Component {
 						id="search-input"
 						placeholder="Enter City"
 						value={this.state.input}
-  					onChange={this.handleChange} />
-					<button id="search-button" className="btn" onClick={this.updateCity}>
+  					onChange={this.handleChange()} />
+					<button id="search-button" className="btn" onClick={this.updateCity()}>
 						<Link to="/application" className="btn" />
 					</button>
 				</div>
@@ -153,10 +153,10 @@ export class Application extends React.Component {
 					</section>
 					{/*passes unit type to change temp units
 						 passes daily # to tell how many day cards to render (5 vs 7)*/}
-					{/*React.Children.map
+					{React.Children.map
 						(this.props.children, child => 
 							React.cloneElement(child, {currentTemp: this.state.currentTemp, daily: this.state.daily, unit: this.state.unit}))
-					*/}
+					}
 				</div>
 			</main>
 		)
