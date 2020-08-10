@@ -1,5 +1,5 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import Routes from './routes.js';
+//import Routes from './routes.js';
 //import DelayLink from './DelayLink.js';
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
@@ -272,4 +272,9 @@ export class WeekCard extends React.Component {
 	}
 };
 
-ReactDOM.render(<Routes />, document.getElementById("app"));
+ReactDOM.render(<Router basename="/weather-app">
+			<Route exact path='/' component={CitySearch} />
+			<Route path='/application' component={Application}>
+				<Route path='/week' component={WeekCard} />
+			</Route>
+		</Router>, document.getElementById("app"));
