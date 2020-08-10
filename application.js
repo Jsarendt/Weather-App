@@ -1,5 +1,5 @@
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import routes from './routes.js';
+import Routes from './routes.js';
 //import DelayLink from './DelayLink.js';
 var Link = require('react-router').Link;
 var createReactClass = require('create-react-class');
@@ -56,8 +56,8 @@ export class CitySearch extends React.Component {
 						id="search-input"
 						placeholder="Enter City"
 						value={this.state.input}
-  					onChange={this.handleChange()} />
-					<button id="search-button" className="btn" onClick={this.updateCity()}>
+  					onChange={this.handleChange} />
+					<button id="search-button" className="btn" onClick={this.updateCity}>
 						<Link to="/application" className="btn" />
 					</button>
 				</div>
@@ -272,4 +272,4 @@ export class WeekCard extends React.Component {
 	}
 };
 
-ReactDOM.render(routes, document.getElementById("app"));
+ReactDOM.render(<Routes />, document.getElementById("app"));
