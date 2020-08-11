@@ -4,7 +4,7 @@ import { CitySearch, Application, WeekCard } from './application.js';
 
 const createRoutes = (
 	<HashRouter basename={process.env.PUBLIC_URL}>
-		<Route exact path='/weather-app/' component={CitySearch} />
+		<Route exact path='/' component={CitySearch} />
 		<Route path='/application' component={Application}>
 			<Route path='/week' component={WeekCard} />
 		</Route>
