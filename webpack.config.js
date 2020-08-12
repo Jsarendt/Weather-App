@@ -7,9 +7,9 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
-	path: path.resolve(__dirname, './dist'),
+	path: path.resolve(__dirname, '/dist'),
     filename: 'bundle.js',
-	publicPath: '/dist'
+	publicPath: '/'
   },
   devtool: 'inline-source-map',
   module: {
@@ -17,7 +17,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: ['babel-loader']
+        use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env']
+			}
+		}
       },
       {
         test: /\.css$/,
@@ -41,10 +46,11 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   devServer: {
-	contentBase: __dirname,
     host: 'localhost',
     port: port,
-    historyApiFallback: true,
+    historyApiFallback: {
+		index: '/index2.html'
+	},
     open: true,
 	compress: true,
 	writeToDisk: true
@@ -53,6 +59,5 @@ module.exports = {
 	new HtmlWebPackPlugin({
         template: __dirname + '/index.html',
         filename: 'index2.html',
-        inject: 'body'
     })]
 };

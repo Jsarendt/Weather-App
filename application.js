@@ -1,7 +1,6 @@
 import createRoutes from './routes.js';
 //import DelayLink from './DelayLink.js';
 var Link = require('react-router').Link;
-var createReactClass = require('create-react-class');
 var React = require('react');
 var ReactDOM = require('react-dom'),
 darkBackground = "linear-gradient(#01081C, #002AA0)",
