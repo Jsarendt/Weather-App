@@ -1,14 +1,15 @@
 import React from 'react';
-import { Switch, HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { CitySearch, Application, WeekCard } from './application.js';
 
+
 const createRoutes = (
-	<HashRouter basename={process.env.PUBLIC_URL}>
-		<Route exact path='/' component={CitySearch} />
+	<BrowserRouter>
+		<Route path='/' component={CitySearch} />
 		<Route path='/application' component={Application}>
 			<Route path='/week' component={WeekCard} />
 		</Route>
-	</HashRouter>
+	</BrowserRouter>
 )
 
 

@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const port = 3000;
 
@@ -7,15 +7,15 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
-	path: path.resolve(__dirname, 'dist'),
-	publicPath: '/',
-    filename: 'bundle.js'
+	path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
+	publicPath: '/dist'
   },
   devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: ['babel-loader']
       },
@@ -40,16 +40,19 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  plugins: [
-	new HtmlWebpackPlugin({
-		template: 'index.html',
-		inject: 'body'
-	})
-  ],
   devServer: {
+	contentBase: __dirname,
     host: 'localhost',
     port: port,
     historyApiFallback: true,
-    open: true
-  }
+    open: true,
+	compress: true,
+	writeToDisk: true
+  },
+  plugins: [
+	new HtmlWebPackPlugin({
+        template: __dirname + '/index.html',
+        filename: 'index2.html',
+        inject: 'body'
+    })]
 };

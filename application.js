@@ -271,4 +271,5 @@ export class WeekCard extends React.Component {
 	}
 };
 
+
 ReactDOM.render(createRoutes, document.getElementById("app"));

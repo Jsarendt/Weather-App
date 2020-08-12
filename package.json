@@ -4,6 +4,11 @@
   "homepage": "https://jsarendt.github.io/weather-app",
   "main": "./application.js",
   "@std/esm": "cjs",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3000"
+    }
+  },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@babel/standalone": "^7.11.0",
@@ -15,6 +20,7 @@
     "babel-preset-node6": "^11.0.0",
     "create-react-class": "^15.6.3",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -22,9 +28,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "webpack --mode production",
-    "test": "react-scripts test",
+    "start": "webpack-dev-server --progress --inline --hot",
+    "build": "webpack --config ./webpack.config.js --progress --colors",
+    "test": "webpack-dev-server --port 3000",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "dev": "webpack --mode development"
