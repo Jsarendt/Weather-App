@@ -1,6 +1,7 @@
-import createRoutes from './routes.js';
-//import DelayLink from './DelayLink.js';
-var Link = require('react-router').Link;
+//import createRoutes from './routes.js';
+import DelayLink from './DelayLink.js';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 var React = require('react');
 var ReactDOM = require('react-dom'),
 darkBackground = "linear-gradient(#01081C, #002AA0)",
@@ -20,7 +21,7 @@ days = [
 	{id: "Saturday", abb: "Sat"}];
 
 
-export class CitySearch extends React.Component {
+class CitySearch extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -61,10 +62,10 @@ export class CitySearch extends React.Component {
 				</div>
 			</div>
 		)
-	}
+	};
 };
 
-export class Application extends React.Component {
+class Application extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -269,6 +270,16 @@ export class WeekCard extends React.Component {
 		);
 	}
 };
+
+const createRoutes = (
+	<BrowserRouter>
+	<Switch>
+		<Route exact path='/' component={CitySearch} />
+		<Route exact path='/application' component={Application} />
+			
+	</Switch>
+	</BrowserRouter>
+)
 
 
 ReactDOM.render(createRoutes, document.getElementById("app"));

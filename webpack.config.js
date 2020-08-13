@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
-	path: path.resolve(__dirname, '/dist'),
+	path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
 	publicPath: '/'
   },
@@ -20,7 +20,7 @@ module.exports = {
         use: {
 			loader: 'babel-loader',
 			options: {
-				presets: ['@babel/preset-env']
+				presets: ['@babel/preset-react', '@babel/preset-env']
 			}
 		}
       },
@@ -48,9 +48,7 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: port,
-    historyApiFallback: {
-		index: '/index2.html'
-	},
+    historyApiFallback: true,
     open: true,
 	compress: true,
 	writeToDisk: true

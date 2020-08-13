@@ -1,14 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import { CitySearch, Application, WeekCard } from './application.js';
-
+console.log('test');
 
 const createRoutes = (
 	<BrowserRouter>
+	<Switch>
 		<Route path='/' component={CitySearch} />
-		<Route path='/application' component={Application}>
-			<Route path='/week' component={WeekCard} />
-		</Route>
+		<Route path='/application' component={Application} />
+			
+	</Switch>
 	</BrowserRouter>
 )
 
