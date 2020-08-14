@@ -124,7 +124,7 @@ class Application extends React.Component {
 					lightBackground}}>
 				<nav id="header">
 					<Link to={{pathname: "/application/week", query:{daily: 5}}} className="btn">5-Day Forecast</Link>
-					<Link to="/" className="btn">City Search</Link>
+					<Link to="/weather-app/" className="btn">City Search</Link>
 					<Link to={{pathname: "/application/week", query:{daily: 7}}} className="btn">7-Day Forecast</Link>
 				</nav>
 				<div 
