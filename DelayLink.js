@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, browserHistory } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 //delays rendering of /application route to allow for the Geocoding API call to make changes
 
-export default class DelayLink extends React.Component {
+class DelayLink extends React.Component {
   static propTypes = {
     delay:        PropTypes.number,
     onDelayStart: PropTypes.func,
@@ -38,11 +39,7 @@ export default class DelayLink extends React.Component {
     e.preventDefault();
 		
     this.timeout = setTimeout(() => {
-      if (replace) {
-        history.replace(to);
-      } else {
-        history.push(to);
-      }
+      this.props.history.push(to);
       onDelayEnd(e, to);
     }, delay);
   };
@@ -57,3 +54,5 @@ export default class DelayLink extends React.Component {
     );
   }
 }
+
+export default withRouter(DelayLink);

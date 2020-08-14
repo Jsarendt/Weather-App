@@ -1,6 +1,6 @@
 //import createRoutes from './routes.js';
 import DelayLink from './DelayLink.js';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter, Route, Layout } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 var React = require('react');
 var ReactDOM = require('react-dom'),
@@ -8,8 +8,8 @@ darkBackground = "linear-gradient(#01081C, #002AA0)",
 lightBackground = "linear-gradient(#004BAE, #99D9FC)",
 hours = new Date().getHours(),
 minutes = new Date().getMinutes(),
-lat = '',
-lon = '',
+lat = 44.2378,
+lon = -88.8373,
 city = '',
 days = [
 	{id: "Sunday", abb: "Sun"}, 
@@ -57,7 +57,7 @@ class CitySearch extends React.Component {
 						value={this.state.input}
   					onChange={this.handleChange} />
 					<button id="search-button" className="btn" onClick={this.updateCity}>
-						<Link to="/application" className="btn" />
+						<DelayLink to="/application" delay={900} className="btn" />
 					</button>
 				</div>
 			</div>
@@ -123,9 +123,9 @@ class Application extends React.Component {
 					darkBackground : 
 					lightBackground}}>
 				<nav id="header">
-					<Link  to={{pathname: "/week", query:{daily: 5}}} className="btn">5-Day Forecast</Link>
+					<Link to={{pathname: "/application/week", query:{daily: 5}}} className="btn">5-Day Forecast</Link>
 					<Link to="/" className="btn">City Search</Link>
-					<Link  to={{pathname: "/week", query:{daily: 7}}} className="btn">7-Day Forecast</Link>
+					<Link to={{pathname: "/application/week", query:{daily: 7}}} className="btn">7-Day Forecast</Link>
 				</nav>
 				<div 
 					id="container"
@@ -152,10 +152,9 @@ class Application extends React.Component {
 					</section>
 					{/*passes unit type to change temp units
 						 passes daily # to tell how many day cards to render (5 vs 7)*/}
-					{React.Children.map
-						(this.props.children, child => 
-							React.cloneElement(child, {currentTemp: this.state.currentTemp, daily: this.state.daily, unit: this.state.unit}))
-					}
+					<Route path='/application/week' render={
+						(props) => <WeekCard {...props} currentTemp={this.state.currentTemp} daily={this.state.daily} unit={this.state.unit} />
+					} />
 				</div>
 			</main>
 		)
@@ -210,23 +209,23 @@ export class WeekCard extends React.Component {
 				<div 
 					id="spacer" 
 					style={{
-								minHeight: "15px", 
-								height: this.props.currentTemp >= 30 ?
-								this.props.currentTemp >= 100 ?
-								`${(130 - day.temp.max) * 2}px` :
-								`${(100 - day.temp.max) * 2}px` : 
-								`${(40 - day.temp.max) * 2}px`}} />
+						minHeight: "15px", 
+						height: this.props.currentTemp >= 30 ?
+						this.props.currentTemp >= 100 ?
+						`${(130 - day.temp.max) * 2}px` :
+						`${(100 - day.temp.max) * 2}px` : 
+						`${(40 - day.temp.max) * 2}px`}} />
 				<div id="temps">
 					<div id="high">{
-							this.props.unit == "fahrenheit" ? 
-							Math.round(day.temp.max) : 
-							Math.round(metric(day.temp.max, "temp"))}&#176;
+						this.props.unit == "fahrenheit" ? 
+						Math.round(day.temp.max) : 
+						Math.round(metric(day.temp.max, "temp"))}&#176;
 					</div>
 					<div id="bar" style={{height: `${(day.temp.max - day.temp.min) * 3}px`}} />
 					<div id="low">{
-							this.props.unit == "fahrenheit" ? 
-							Math.round(day.temp.min) : 
-							Math.round(metric(day.temp.min, "temp"))}&#176;</div>
+						this.props.unit == "fahrenheit" ? 
+						Math.round(day.temp.min) : 
+						Math.round(metric(day.temp.min, "temp"))}&#176;</div>
 				</div>
 			</div>
 		);						
@@ -238,26 +237,26 @@ export class WeekCard extends React.Component {
 			<section id="hourly" style={{visibility: this.state.active ? "visible" : "hidden"}}>
 				<div className="hourlyCard">
 					<div>{this.props.unit == "fahrenheit" ? 
-								this.state.morn : 
-								Math.round(metric(this.state.morn, "temp"))}&#176;</div>
+						this.state.morn : 
+						Math.round(metric(this.state.morn, "temp"))}&#176;</div>
 					<div>Morning</div>
 				</div>
 				<div className="hourlyCard">
 					<div>{this.props.unit == "fahrenheit" ? 
-								this.state.eve : 
-								Math.round(metric(this.state.eve, "temp"))}&#176;</div>
+						this.state.eve : 
+						Math.round(metric(this.state.eve, "temp"))}&#176;</div>
 					<div>Evening</div>
 				</div>
 				<div className="hourlyCard">
 					<div>{this.props.unit == "fahrenheit" ? 
-								this.state.windSpeed + "Mph" : 
-								metric(this.state.windSpeed, "distance") + "Km/h"}</div>
+						this.state.windSpeed + "Mph" : 
+						metric(this.state.windSpeed, "distance") + "Km/h"}</div>
 					<div>Wind Speed</div>
 				</div>
 				<div className="hourlyCard">
 					<div>{this.props.unit == "fahrenheit" ? 
-								this.state.dewPoint : 
-								Math.round(metric(this.state.dewPoint, "temp"))}&#176;</div>
+						this.state.dewPoint : 
+						Math.round(metric(this.state.dewPoint, "temp"))}&#176;</div>
 					<div>Dew Point</div>
 				</div>
 				<div className="hourlyCard">
@@ -270,16 +269,14 @@ export class WeekCard extends React.Component {
 		);
 	}
 };
-
 const createRoutes = (
 	<BrowserRouter>
-	<Switch>
 		<Route exact path='/' component={CitySearch} />
-		<Route exact path='/application' component={Application} />
-			
-	</Switch>
+		<Route path='/application' component={Application} />
+		
 	</BrowserRouter>
 )
+
 
 
 ReactDOM.render(createRoutes, document.getElementById("app"));
