@@ -22,6 +22,6 @@ app.listen(PORT, () => {
     console.log(`App listening to ${PORT}....`)
     console.log('Press Ctrl+C to quit.')
 })
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(HTML_FILE)
 })
