@@ -271,7 +271,7 @@ export class WeekCard extends React.Component {
 };
 const createRoutes = (
 	<BrowserRouter>
-		<Route exact path='/' component={CitySearch} />
+		<Route exact path='/weather-app/' component={CitySearch} />
 		<Route path='/application' component={Application} />
 		
 	</BrowserRouter>
