@@ -7,35 +7,33 @@ module.exports = {
   mode: 'development',  
   entry: './application.js',
   output: {
-	path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-	publicPath: '/'
+    publicPath: '/'
   },
   devtool: 'inline-source-map',
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/preset-react', '@babel/preset-env']
-			}
-		}
+      rules: [{
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+	      loader: 'babel-loader',
+	      options: {
+	          presets: ['@babel/preset-react', '@babel/preset-env']
+	      }
+	  }
       },
       {
         test: /\.css$/,
-        use: [
-          {
+        use: [{
             loader: 'style-loader'
-          },
-          {
+        },
+        {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localsConvention: 'camelCase',
-              sourceMap: true
+                modules: true,
+                localsConvention: 'camelCase',
+                sourceMap: true
             }
           }
         ]
@@ -50,12 +48,12 @@ module.exports = {
     port: port,
     historyApiFallback: true,
     open: true,
-	compress: true,
-	writeToDisk: true
+    compress: true,
+    writeToDisk: true
   },
   plugins: [
-	new HtmlWebPackPlugin({
-        template: __dirname + '/index.html',
-        filename: 'index2.html',
-    })]
+      new HtmlWebPackPlugin({
+      template: __dirname + '/index.html',
+      filename: 'index2.html',
+  })]
 };
