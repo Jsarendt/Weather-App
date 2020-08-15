@@ -31,8 +31,7 @@
     "react-router": "^2.0.0",
     "react-router-dom": "^2.0.0",
     "react-scripts": "3.4.1",
-    "webpack-dev-middleware": "^3.7.2",
-    "webpack-isomorphic-tools": "^3.0.6"
+    "webpack-dev-middleware": "^3.7.2"
   },
   "scripts": {
     "start": "node ./server.js",
