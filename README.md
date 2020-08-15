@@ -30,3 +30,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 First full version is complete. Multiple small bugs and tweaks still to be made
 
 Working app can be found on this [Github Pages Link](https://jsarendt.github.io/weather-app/)
+
+## Credit 
+Credit to Headzoo for [DelayLink Component](https://gist.github.com/headzoo/8f4c6a5e843ec26abdcad87cd93e3e2e) code
