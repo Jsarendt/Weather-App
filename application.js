@@ -1,17 +1,18 @@
 //import createRoutes from './routes.js';
 import DelayLink from './DelayLink.js';
 import { Switch, BrowserRouter, Route, Layout } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 var React = require('react');
-var ReactDOM = require('react-dom'),
-darkBackground = "linear-gradient(#01081C, #002AA0)",
-lightBackground = "linear-gradient(#004BAE, #99D9FC)",
-hours = new Date().getHours(),
-minutes = new Date().getMinutes(),
-lat = 44.2378,
-lon = -88.8373,
-city = '',
-days = [
+var ReactDOM = require('react-dom');
+var darkBackground = "linear-gradient(#01081C, #002AA0)";
+var lightBackground = "linear-gradient(#003D8D, #88D5FE)";
+var hours = new Date().getHours();
+var minutes = new Date().getMinutes();
+var lat = 44.2378;
+var lon = -88.8373;
+var city = '';
+var days = [
 	{id: "Sunday", abb: "Sun"}, 
 	{id: "Monday", abb: "Mon"}, 
 	{id: "Tuesday", abb: "Tues"}, 
@@ -73,20 +74,12 @@ class Application extends React.Component {
 			unit: "fahrenheit",
 			currentTemp: '',
 			currentDay: '',
-			daily: '',
-			timeTest: new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes())
+			daily: ''
 		}
 		this.unitChange = this.unitChange.bind(this);
 	}
 
 	componentDidMount() {
-		this.intervalID = setInterval(
-      () => this.setState(state => ({
-				timeTest: new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? "0" + new Date().getMinutes() : new Date().getMinutes())
-			})),
-      10000
-    );
-		 
 		let request = new XMLHttpRequest();
 		var API = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=3daff8b6e93781c1d80277bbed731195";
 		request.open("GET", API, true);
@@ -102,10 +95,6 @@ class Application extends React.Component {
 		request.send();
 	};
 
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
-  };
-	
 	unitChange(props) {
 		props == "f" ?
 		this.setState(state => ({
